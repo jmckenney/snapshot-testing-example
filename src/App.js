@@ -1,14 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>{props.title}</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        {props.showError &&
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+        }
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -18,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      {props.children}
     </div>
   );
 }
